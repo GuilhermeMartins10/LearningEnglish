@@ -6,6 +6,8 @@ import { TopComponent } from './top/top.component';
 import { PanelComponent } from './panel/panel.component';
 import { AttempsComponent } from './panel/attemps/attemps.component';
 import { ProgressComponent } from './panel/progress/progress.component';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { ProgressComponent } from './panel/progress/progress.component';
     ProgressComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ToastModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

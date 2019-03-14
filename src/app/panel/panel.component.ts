@@ -1,6 +1,7 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewContainerRef } from '@angular/core';
 import { Phrase } from '../shared/models/phrase.model';
 import { PHRASES } from '../fakeDB/phrases-mock';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-panel',
@@ -18,7 +19,7 @@ export class PanelComponent {
   public attemps: number = 3;
   @Output() public endGame: EventEmitter<string> = new EventEmitter();
 
-  constructor() {
+  constructor(private toastr: ToastrService) {
     this.updateRound();
   }
 
@@ -28,7 +29,7 @@ export class PanelComponent {
 
   public answerVerify(): void {
     if (this.roundPhrase.phrasePtBr === this.response) {
-      alert('A tradução está correta!');
+      this.toastr.success('Hello world!', 'Toastr fun!');
       this.progress = this.progress + (100 / this.phrases.length);
       this.round++;
       if(this.round === this.phrases.length) {
@@ -37,7 +38,7 @@ export class PanelComponent {
       this.updateRound();
     }
     else {
-      alert('A tradução está incorreta!');
+      this.toastr.success('Hello world!', 'Toastr fun!');
       this.attemps--;
       if(this.attemps === -1){
         this.endGame.emit('defeat');
