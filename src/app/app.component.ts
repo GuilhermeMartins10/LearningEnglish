@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public gameInProgress: boolean = true;
+  public gameInProgress = true;
   public endMessage: string;
 
   public endGame(type: string): void {

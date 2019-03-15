@@ -6,7 +6,7 @@ import { TopComponent } from './top/top.component';
 import { PanelComponent } from './panel/panel.component';
 import { AttempsComponent } from './panel/attemps/attemps.component';
 import { ProgressComponent } from './panel/progress/progress.component';
-import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -19,7 +19,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    ToastModule.forRoot()
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 2500,
+      positionClass: 'toast-bottom-right'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

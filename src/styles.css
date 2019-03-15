@@ -1,1 +1,2 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import 'scss/partials/toasty/toasty-override.scss'
